@@ -1,0 +1,26 @@
+{% extends 'djangocourse/base.html' %}
+{% block content %}
+<div class="container">
+    <table class="table caption-top">
+        <caption>Сообщения</caption>
+        <thead>
+        <tr>
+            <th scope="col">Тема</th>
+            <th scope="col">Текст</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for object in object_list %}
+        <tr>
+            <td>{{object.theme}}</td>
+            <td>{{object.text}}</td>
+            <td>
+                <a class="p-1 btn btn-primary" href="{% url 'djangocourse:message_detail' object.pk %}">Посмотреть</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
